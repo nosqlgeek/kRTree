@@ -60,3 +60,7 @@ var coords = rtree.dist(Point(arrayOf(200f,200f)), 50f).coords
 assertEquals("[[230.0, 230.0], [240.0, 240.0]]", coords.toString())
 println(coords)
 ```
+
+## More Examples
+
+* https://github.com/nosqlgeek/kRTree/blob/main/src/org/nosqlgeek/krtree/Test.kt
