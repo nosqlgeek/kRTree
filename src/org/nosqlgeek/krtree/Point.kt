@@ -9,7 +9,7 @@ class Point(val dimension : Int, var id : String = "") : ArrayList<Float>(dimens
     /**
      * Alternatively allow to pass an array of values over
      */
-    constructor(a : Array<Float>, id : String = "") : this(a.size, id){
+    constructor(a: Array<Float>, id: String = "") : this(a.size, id){
         this.addAll(a)
     }
 
@@ -47,15 +47,10 @@ class Point(val dimension : Int, var id : String = "") : ArrayList<Float>(dimens
      */
     fun div(num : Float, dim : Int) : Point {
 
-        var result = createFloatArray(dimension)
+        var result = this.clone() as Point
+        result[dim] = this[dim] / num
 
-        for ((i, e) in this.withIndex()) {
-
-            if (i == dim) result[i] = e / num
-            else result[i] = e
-        }
-
-        return Point(result)
+        return result
     }
 
     /**
@@ -63,15 +58,10 @@ class Point(val dimension : Int, var id : String = "") : ArrayList<Float>(dimens
      */
     fun plus(num : Float, dim: Int) : Point {
 
-        var result = createFloatArray(dimension)
+        var result = this.clone() as Point
+        result[dim] = this[dim] + num
 
-        for ((i, e) in this.withIndex()) {
-
-            if (i == dim) result[i] = e + num
-            else result[i] = e
-        }
-
-        return Point(result)
+        return result
     }
 
     /**
@@ -79,12 +69,12 @@ class Point(val dimension : Int, var id : String = "") : ArrayList<Float>(dimens
      */
     fun plus(num : Float) : Point {
 
-        var result = createFloatArray(dimension)
+        var result = this.clone() as Point
 
         for ((i, e) in this.withIndex()) {
             result[i] = e + num
         }
 
-        return Point(result)
+        return result
     }
 }
